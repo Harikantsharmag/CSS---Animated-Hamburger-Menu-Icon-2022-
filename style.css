@@ -1,0 +1,61 @@
+/* 
+body-background-color: #19273d;
+menu-icon-background-color: #3bbeff;
+*/
+
+body {
+  background-color: #19273d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.base {
+  cursor: pointer;
+  padding: 70px 20px;
+}
+
+.bar {
+  width: 200px;
+  height: 4px;
+  background: #3bbeff;
+  box-shadow: 0 0 6px 0.5px #3bbeff, 0 0 6px 1px #3bbeff;
+  border-radius: 5px;
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+.bar::after,
+.bar::before {
+  position: absolute;
+  content: "";
+  width: inherit;
+  height: inherit;
+  background-color: #3bbeff;
+  box-shadow: 0 0 6px 0.5px #3bbeff, 0 0 6px 1px #3bbeff;
+  border-radius: 5px;
+  transition: all 0.5s ease;
+}
+
+.bar::after {
+  transform: translateY(-40px);
+}
+
+.bar::before {
+  transform: translateY(40px);
+}
+
+.active.bar {
+  background: none;
+  box-shadow: none;
+  transform: rotate(360deg);
+}
+
+.active.bar::after {
+  transform: rotate(45deg) translateY(0px);
+}
+
+.active.bar::before {
+  transform: rotate(-45deg) translateY(0px);
+}
